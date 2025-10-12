@@ -1,4 +1,9 @@
-
+RECORdAR HCER
+```bash
+npm install
+npm run dev
+#SI quieren compilar
+npm run build
 
 ## ⚙️ Instalación y Setup Inicial
 
