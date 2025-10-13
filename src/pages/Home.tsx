@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../styles/navbar_style.css";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 type Producto = {
   id: number;
@@ -60,15 +61,18 @@ const tcg: Producto[] = [
     nombre: "Magic The Gathering",
     descripcion: "Murders at Karlov Manor Bundle",
     precio: "$49.990",
-    imagen: "/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle8015.jpg",
-    hover: "/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle-contenido0662.png",
+    imagen:
+      "/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle8015.jpg",
+    hover:
+      "/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle-contenido0662.png",
   },
   {
     id: 6,
     nombre: "One Piece Card Game",
     descripcion: "OP11 A Fist of Divine Speed Booster Display",
     precio: "̶$̶1̶4̶9̶.̶9̶9̶0 $129.990",
-    imagen: "/img/tcg/X_op11-one-piece-a-fist-of-divine-speed-booster-box5231.png",
+    imagen:
+      "/img/tcg/X_op11-one-piece-a-fist-of-divine-speed-booster-box5231.png",
     oferta: "oferta",
   },
   {
@@ -82,6 +86,7 @@ const tcg: Producto[] = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const { addToCart } = useCart();
   // rotación automática del carrusel
@@ -93,9 +98,7 @@ export default function Home() {
   }, []);
 
   const prevSlide = () =>
-    setIndex((prev) =>
-      prev === 0 ? imagenesCarrusel.length - 1 : prev - 1
-    );
+    setIndex((prev) => (prev === 0 ? imagenesCarrusel.length - 1 : prev - 1));
   const nextSlide = () =>
     setIndex((prev) => (prev + 1) % imagenesCarrusel.length);
 
@@ -112,8 +115,11 @@ export default function Home() {
           width="300rem"
           onMouseEnter={() => p.hover && setSrc(p.hover)}
           onMouseLeave={() => setSrc(p.imagen)}
+          onClick={() => navigate(`/producto/${p.id}`)}
         />
-        <h4><b>{p.nombre}</b></h4>
+        <h4 onClick={() => navigate(`/producto/${p.id}`)}>
+          <b>{p.nombre}</b>
+        </h4>
         <p>{p.descripcion}</p>
         <h4 className={p.oferta ? "oferta" : ""}>{p.precio}</h4>
         <button className="boton" onClick={() => addToCart(p)}>
