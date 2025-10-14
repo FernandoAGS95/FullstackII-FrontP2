@@ -61,7 +61,7 @@ const todosLosProductos: Producto[] = [
     id: 6,
     nombre: "One Piece Card Game",
     descripcion: "OP11 A Fist of Divine Speed Booster Display",
-    precio: "$149.990 $129.990",
+    precio: "$129.990",
     imagen:
       "/img/tcg/X_op11-one-piece-a-fist-of-divine-speed-booster-box5231.png",
     oferta: "oferta",

@@ -36,7 +36,7 @@ export default function Navbar() {
         />
 
         <div
-          className={`hamburger ${menuOpen ? "active" : ""}`}
+          className={`hamburger ${menuOpen ? "active" : ""} ${scrolled ? "scrolled" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span></span>

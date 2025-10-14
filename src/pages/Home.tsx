@@ -70,7 +70,7 @@ const tcg: Producto[] = [
     id: 6,
     nombre: "One Piece Card Game",
     descripcion: "OP11 A Fist of Divine Speed Booster Display",
-    precio: "̶$̶1̶4̶9̶.̶9̶9̶0 $129.990",
+    precio: "̶$129.990",
     imagen:
       "/img/tcg/X_op11-one-piece-a-fist-of-divine-speed-booster-box5231.png",
     oferta: "oferta",
@@ -122,9 +122,8 @@ export default function Home() {
         </h4>
         <p>{p.descripcion}</p>
         <h4 className={p.oferta ? "oferta" : ""}>{p.precio}</h4>
-        <button className="boton" onClick={() => addToCart(p)}>
-          Agregar al carrito
-        </button>
+        <button className="boton" onClick={() => addToCart(p)}>Agregar al carrito</button>
+
       </div>
     );
   };
