@@ -12,7 +12,6 @@ type Producto = {
   oferta?: string;
 };
 
-// Aquí van todos tus productos (combina ambos arrays)
 const todosLosProductos: Producto[] = [
   {
     id: 1,
@@ -106,7 +105,7 @@ export default function Producto() {
           margin: "0 auto",
         }}
       >
-        {/* Imagen del producto */}
+        {}
         <div style={{ flex: 1 }}>
           <img
             src={producto.imagen}
@@ -115,7 +114,7 @@ export default function Producto() {
           />
         </div>
 
-        {/* Detalles del producto */}
+        {}
         <div style={{ flex: 1 }}>
           <h1>{producto.nombre}</h1>
           <p style={{ fontSize: "18px", color: "#666", marginBottom: "20px" }}>

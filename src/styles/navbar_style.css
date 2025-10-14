@@ -1,7 +1,8 @@
 /* Estilos generales */
-html,body {
+html,
+body {
   margin: 0;
-padding: 0;
+  padding: 0;
   overflow-x: hidden; /* 👈 evita scroll horizontal */
   font-family: Arial, sans-serif;
   background-color: white;
@@ -151,7 +152,7 @@ nav.solid .logo {
   height: 400px;
   margin: 120px auto 40px auto;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: 1; /* base */
 }
 
@@ -202,10 +203,10 @@ nav.solid .logo {
 }
 
 .carousel-btn.next {
-  right: 80px;   /* 👈 20px separado del borde derecho */
+  right: 80px; /* 👈 20px separado del borde derecho */
 }
 .carousel-btn.prev {
-  left: 20px;    /* 👈 20px separado del borde izquierdo */
+  left: 20px; /* 👈 20px separado del borde izquierdo */
 }
 
 .card {
@@ -229,9 +230,14 @@ nav.solid .logo {
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   transition: opacity 0.4s ease;
+  cursor: pointer;
 }
 
-.card h4,
+.card h4 {
+  margin: 0.5rem 0;
+  color: black;
+  cursor: pointer;
+}
 .card p {
   margin: 0.5rem 0;
   color: black;
@@ -250,6 +256,7 @@ nav.solid .logo {
   color: white;
   border-color: #122c34;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .boton:hover {
@@ -519,12 +526,12 @@ a {
     margin: 10px;
     flex: 1 1 40%;
   }
-.logo {
-  position: relative;   /* en vez de absolute */
-  left: 0;              /* pegado a la izquierda */
-  margin-left: 20px;    /* espacio pequeño */
-  height: 60px;         /* más pequeño en general */
-}
+  .logo {
+    position: relative; /* en vez de absolute */
+    left: 0; /* pegado a la izquierda */
+    margin-left: 20px; /* espacio pequeño */
+    height: 60px; /* más pequeño en general */
+  }
 
   .search-bar input {
     padding: 10px 80px;
@@ -616,7 +623,7 @@ a {
     height: 40px;
     margin-bottom: 10px;
   }
-  .search-bar{
+  .search-bar {
     padding-right: 40px;
   }
   .search-bar input {
@@ -707,11 +714,11 @@ a {
     font-size: 1rem;
   }
   /* Hamburger cuando hay scroll */
-.hamburger.scrolled {
-  top: 35px; /* se alinea con navbar chica */
-  color: white;
-}
-.hamburger.scrolled span {
-  background: #fff; /* 👈 ahora blanco */
-}
+  .hamburger.scrolled {
+    top: 35px; /* se alinea con navbar chica */
+    color: white;
+  }
+  .hamburger.scrolled span {
+    background: #fff; /* 👈 ahora blanco */
+  }
 }
