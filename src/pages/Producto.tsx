@@ -18,32 +18,32 @@ const todosLosProductos: Producto[] = [
     nombre: "¿Alcachofas? ¡No, gracias!",
     descripcion: "Un juego de cartas sin corazón - DEVIR",
     precio: "$9.990",
-    imagen: "/img/juegos_mesa/X_alcachofas-no-gracias1222.jpg",
-    hover: "/img/juegos_mesa/X_alcachofas-no-gracias-contenido8476.png",
+    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_alcachofas-no-gracias1222.jpg",
+    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_alcachofas-no-gracias-contenido8476.png",
   },
   {
     id: 2,
     nombre: "Ensalada de puntos",
     descripcion: "Adquiere vegetales en un mercado para ganar - DEVIR",
     precio: "$11.990",
-    imagen: "/img/juegos_mesa/X_ensalada-de-puntos4892.jpg",
-    hover: "/img/juegos_mesa/X_ensalada-de-puntos-contenido7272.jpg",
+    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_ensalada-de-puntos4892.jpg",
+    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_ensalada-de-puntos-contenido7272.jpg",
   },
   {
     id: 3,
     nombre: "Taco Gorro Torta Caja Pizza",
     descripcion: "Deshazte de tus cartas antes que todos y ¡gana!",
     precio: "$10.990",
-    imagen: "/img/juegos_mesa/X_taco-gorro-torta-caja-pizza8998.jpg",
-    hover: "/img/juegos_mesa/X_taco-gorro-torta-caja-pizza-contenido0432.jpg",
+    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_taco-gorro-torta-caja-pizza8998.jpg",
+    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_taco-gorro-torta-caja-pizza-contenido0432.jpg",
   },
   {
     id: 4,
     nombre: "Yokai Sketch",
     descripcion: "Completa los bocetos de estos espíritus y obtén la victoria",
     precio: "$10.990 $8.990",
-    imagen: "/img/juegos_mesa/X_yokai-sketch8794.jpg",
-    hover: "/img/juegos_mesa/X_yokai-sketch-contenido7916.jpg",
+    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_yokai-sketch8794.jpg",
+    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_yokai-sketch-contenido7916.jpg",
     oferta: "oferta",
   },
   {
@@ -52,9 +52,9 @@ const todosLosProductos: Producto[] = [
     descripcion: "Murders at Karlov Manor Bundle",
     precio: "$49.990",
     imagen:
-      "/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle8015.jpg",
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle8015.jpg",
     hover:
-      "/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle-contenido0662.png",
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_magic-the-gathering-murders-at-karlov-manor-bundle-contenido0662.png",
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ const todosLosProductos: Producto[] = [
     descripcion: "OP11 A Fist of Divine Speed Booster Display",
     precio: "$129.990",
     imagen:
-      "/img/tcg/X_op11-one-piece-a-fist-of-divine-speed-booster-box5231.png",
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_op11-one-piece-a-fist-of-divine-speed-booster-box5231.png",
     oferta: "oferta",
   },
   {
@@ -70,8 +70,8 @@ const todosLosProductos: Producto[] = [
     nombre: "Pokemon Trading Card Game",
     descripcion: "Paldean Fates Elite Trainer Box",
     precio: "$42.990",
-    imagen: "/img/tcg/X_pkm-pr-etb-iv1709.png",
-    hover: "/img/tcg/X_pkm-pr-etb1683.png",
+    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_pkm-pr-etb-iv1709.png",
+    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_pkm-pr-etb1683.png",
   },
 ];
 
