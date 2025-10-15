@@ -8,6 +8,7 @@ import Producto from "./pages/Producto";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import { CartProvider } from "./context/CartContext";
+import Register from "./pages/Register";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/producto/:id" element={<Producto />} />

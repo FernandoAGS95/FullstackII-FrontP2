@@ -1,6 +1,6 @@
 // src/pages/Login.tsx
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/login_style.css";
 
 export default function Login() {
@@ -12,7 +12,6 @@ export default function Login() {
     e.preventDefault();
     console.log("Login con:", { email, password });
 
-    // comprobación simple de credenciales de administrador
     const isAdmin = email === "admin@tcg.cl" && password === "admin";
 
     const attempt = {
@@ -21,6 +20,7 @@ export default function Login() {
       success: isAdmin,
       timestamp: new Date().toISOString(),
     };
+
     try {
       const saved = localStorage.getItem("login_attempts");
       const arr = saved ? JSON.parse(saved) : [];
@@ -31,12 +31,9 @@ export default function Login() {
     }
 
     if (isAdmin) {
-      // navegar a la vista de admin
       navigate("/admin");
       return;
     }
-
-    // para otros casos, aquí iría la llamada real al backend
   };
 
   return (
@@ -65,6 +62,10 @@ export default function Login() {
         />
 
         <button type="submit">Ingresar</button>
+
+        <p className="register-text">
+          ¿No tienes cuenta? <Link to="/register">Regístrate</Link>
+        </p>
       </form>
     </div>
   );
