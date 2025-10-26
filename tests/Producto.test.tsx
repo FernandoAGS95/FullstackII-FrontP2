@@ -3,7 +3,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import Producto from "../src/pages/Producto";
 
-// 🔹 Mock del contexto del carrito
 const mockAddToCart = vi.fn();
 
 vi.mock("../src/context/CartContext", () => ({
@@ -12,7 +11,6 @@ vi.mock("../src/context/CartContext", () => ({
   }),
 }));
 
-// 🔹 Mock de useNavigate
 const mockNavigate = vi.fn();
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual<typeof import("react-router-dom")>(

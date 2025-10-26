@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:report": "vitest run --reporter=html",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "react": "^19.1.1",

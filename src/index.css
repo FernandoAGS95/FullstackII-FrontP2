@@ -1,4 +1,4 @@
-/* --- Reset Vite template --- */
+
 html, body {
   width: 100%;
   margin: 0;
@@ -7,12 +7,12 @@ html, body {
 }
 
 body {
-  display: block !important;       /* <- quita el flex del template */
-  place-items: initial !important; /* <- anula el centrado */
-  min-width: 0 !important;         /* <- evita empujes raros */
+  display: block !important;       
+  place-items: initial !important;
+  min-width: 0 !important;         
   min-height: auto !important;
 }
 
 #root {
-  width: 100% !important;          /* <- el root ocupa todo el ancho */
+  width: 100% !important;          
 }
