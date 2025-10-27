@@ -14,11 +14,11 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .carrito-item img {
-  width: 120px;      /* 👈 tamaño fijo */
+  width: 120px;
   height: 120px;
   object-fit: contain;
   margin-right: 20px;
@@ -46,9 +46,9 @@
 
 .cantidad-control {
   display: flex;
-  align-items: center;   /* centra verticalmente */
+  align-items: center; /* centra verticalmente */
   justify-content: center; /* centra en horizontal si el contenedor es grande */
-  gap: 12px;             /* espacio entre botones y número */
+  gap: 12px; /* espacio entre botones y número */
   margin: 8px 0;
 }
 
@@ -62,10 +62,10 @@
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  display: flex;          /* 👈 hace que el texto se centre */
-  align-items: center;    /* centra vertical */
-  justify-content: center;/* centra horizontal */
-  line-height: 1;         /* evita que el símbolo se mueva */
+  display: flex; /* 👈 hace que el texto se centre */
+  align-items: center; /* centra vertical */
+  justify-content: center; /* centra horizontal */
+  line-height: 1; /* evita que el símbolo se mueva */
 }
 
 .cantidad-control button:hover {

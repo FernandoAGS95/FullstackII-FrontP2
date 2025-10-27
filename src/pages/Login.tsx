@@ -6,11 +6,27 @@ import "../styles/login_style.css";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const navigate = useNavigate();
+
+  const isValidEmail = (email: string) => {
+    const atSplit = email.split("@");
+    if (atSplit.length !== 2) return false;
+    return /\./.test(atSplit[1]);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login con:", { email, password });
+    setError("");
+    setEmailError("");
+
+    if (!isValidEmail(email)) {
+      setEmailError(
+        "El correo debe tener un solo @ y un dominio válido (ej: .com, .cl)"
+      );
+      return;
+    }
 
     const isAdmin = email === "admin@tcg.cl" && password === "admin";
 
@@ -33,6 +49,8 @@ export default function Login() {
     if (isAdmin) {
       navigate("/admin");
       return;
+    } else {
+      setError("Credenciales incorrectas");
     }
   };
 
@@ -40,6 +58,15 @@ export default function Login() {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Iniciar Sesión</h2>
+
+        {error && (
+          <div
+            className="login-error"
+            style={{ color: "red", marginBottom: 10 }}
+          >
+            {error}
+          </div>
+        )}
 
         <label htmlFor="email">Correo electrónico</label>
         <input
@@ -50,6 +77,14 @@ export default function Login() {
           placeholder="ejemplo@correo.com"
           required
         />
+        {emailError && (
+          <div
+            className="login-error"
+            style={{ color: "red", marginBottom: 10 }}
+          >
+            {emailError}
+          </div>
+        )}
 
         <label htmlFor="password">Contraseña</label>
         <input

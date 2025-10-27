@@ -78,7 +78,7 @@
 .form-group textarea {
   padding: 14px 16px;
   border: 2px solid #e1e1e1;
-  border-radius: 10px; /* rounded corners */
+  border-radius: 10px;
   font-size: 16px;
   transition: all 0.18s ease;
   font-family: Arial, Helvetica, sans-serif;

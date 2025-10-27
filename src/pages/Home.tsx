@@ -25,32 +25,40 @@ const juegosMesa: Producto[] = [
     nombre: "¿Alcachofas? ¡No, gracias!",
     descripcion: "Un juego de cartas sin corazón - DEVIR",
     precio: "$9.990",
-    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_alcachofas-no-gracias1222.jpg",
-    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_alcachofas-no-gracias-contenido8476.png",
+    imagen:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_alcachofas-no-gracias1222.jpg",
+    hover:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_alcachofas-no-gracias-contenido8476.png",
   },
   {
     id: 2,
     nombre: "Ensalada de puntos",
     descripcion: "Adquiere vegetales en un mercado para ganar - DEVIR",
     precio: "$11.990",
-    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_ensalada-de-puntos4892.jpg",
-    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_ensalada-de-puntos-contenido7272.jpg",
+    imagen:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_ensalada-de-puntos4892.jpg",
+    hover:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_ensalada-de-puntos-contenido7272.jpg",
   },
   {
     id: 3,
     nombre: "Taco Gorro Torta Caja Pizza",
     descripcion: "Deshazte de tus cartas antes que todos y ¡gana!",
     precio: "$10.990",
-    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_taco-gorro-torta-caja-pizza8998.jpg",
-    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_taco-gorro-torta-caja-pizza-contenido0432.jpg",
+    imagen:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_taco-gorro-torta-caja-pizza8998.jpg",
+    hover:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_taco-gorro-torta-caja-pizza-contenido0432.jpg",
   },
   {
     id: 4,
     nombre: "Yokai Sketch",
     descripcion: "Completa los bocetos de estos espíritus y obtén la victoria",
     precio: "̶$̶1̶0̶.̶9̶9̶0 $8.990",
-    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_yokai-sketch8794.jpg",
-    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_yokai-sketch-contenido7916.jpg",
+    imagen:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_yokai-sketch8794.jpg",
+    hover:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/juegos_mesa/X_yokai-sketch-contenido7916.jpg",
     oferta: "oferta",
   },
 ];
@@ -80,8 +88,10 @@ const tcg: Producto[] = [
     nombre: "Pokemon Trading Card Game",
     descripcion: "Paldean Fates Elite Trainer Box",
     precio: "$42.990",
-    imagen: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_pkm-pr-etb-iv1709.png",
-    hover: "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_pkm-pr-etb1683.png",
+    imagen:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_pkm-pr-etb-iv1709.png",
+    hover:
+      "https://tcg-shop-assets.s3.us-east-1.amazonaws.com/img/tcg/X_pkm-pr-etb1683.png",
   },
 ];
 
@@ -102,7 +112,6 @@ export default function Home() {
   const nextSlide = () =>
     setIndex((prev) => (prev + 1) % imagenesCarrusel.length);
 
-  // 🔥 función para renderizar productos con hover
   const renderProducto = (p: Producto) => {
     const [src, setSrc] = useState(p.imagen);
 
@@ -122,15 +131,15 @@ export default function Home() {
         </h4>
         <p>{p.descripcion}</p>
         <h4 className={p.oferta ? "oferta" : ""}>{p.precio}</h4>
-        <button className="boton" onClick={() => addToCart(p)}>Agregar al carrito</button>
-
+        <button className="boton" onClick={() => addToCart(p)}>
+          Agregar al carrito
+        </button>
       </div>
     );
   };
 
   return (
     <main>
-      {/* Carrusel */}
       <div className="carousel">
         <div className="carousel-images">
           {imagenesCarrusel.map((src, i) => (
@@ -150,14 +159,12 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Juegos de Mesa */}
       <section className="content">
         <h1 className="titulos">JUEGOS DE MESA</h1>
         <div className="spacer">{juegosMesa.map(renderProducto)}</div>
 
         <hr className="separador" />
 
-        {/* TCG */}
         <h1 className="titulos">TRADING CARD GAMES</h1>
         <div className="spacer">{tcg.map(renderProducto)}</div>
       </section>

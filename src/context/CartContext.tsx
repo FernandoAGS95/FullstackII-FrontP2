@@ -1,5 +1,11 @@
 // src/context/CartContext.tsx
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type ReactNode,
+} from "react";
 
 type Producto = {
   id: number;
@@ -19,7 +25,7 @@ type CartItem = {
 type CartContextType = {
   items: CartItem[];
   addToCart: (producto: Producto) => void;
-  decreaseFromCart: (id: number) => void;   // 👈 nuevo
+  decreaseFromCart: (id: number) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
   count: number;
@@ -59,7 +65,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
             ? { ...item, cantidad: item.cantidad - 1 }
             : item
         )
-        .filter((item) => item.cantidad > 0) // si llega a 0, se elimina
+        .filter((item) => item.cantidad > 0)
     );
   };
 
@@ -75,7 +81,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       value={{
         items,
         addToCart,
-        decreaseFromCart,   // 👈 lo exponemos
+        decreaseFromCart,
         removeFromCart,
         clearCart,
         count,

@@ -13,7 +13,6 @@ export default function Footer() {
           </ul>
         </div>
         <div className="footer-logo">
-          {/* Reemplaza la ruta por la de tu logo */}
           <img
             src="https://static.wixstatic.com/media/cc32b2_4cd9801bbc844d7f9fce1e92f80fa270~mv2.png"
             alt="Logo Tienda"

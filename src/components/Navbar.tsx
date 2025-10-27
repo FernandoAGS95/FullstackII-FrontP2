@@ -19,7 +19,6 @@ export default function Navbar() {
   return (
     <header>
       <nav id="navbar" className={`navbar-scope ${scrolled ? "solid" : ""}`}>
-        {/* 👇 search-bar solo visible si NO hay scroll */}
         {!scrolled && (
           <form className="search-bar" onSubmit={(e) => e.preventDefault()}>
             <input type="text" placeholder="Buscar..." />
@@ -36,7 +35,9 @@ export default function Navbar() {
         />
 
         <div
-          className={`hamburger ${menuOpen ? "active" : ""} ${scrolled ? "scrolled" : ""}`}
+          className={`hamburger ${menuOpen ? "active" : ""} ${
+            scrolled ? "scrolled" : ""
+          }`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span></span>
@@ -48,9 +49,15 @@ export default function Navbar() {
           className={`nav-menu ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(false)}
         >
-          <li><NavLink to="/">Inicio</NavLink></li>
-          <li><NavLink to="/contacto">Contacto</NavLink></li>
-          <li><NavLink to="/login">Login</NavLink></li>
+          <li>
+            <NavLink to="/">Inicio</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contacto">Contacto</NavLink>
+          </li>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
           <li>
             <NavLink to="/carrito">
               Carrito{" "}

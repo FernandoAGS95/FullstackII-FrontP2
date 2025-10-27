@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../styles/admin_style.css"; // 👈 nuevo css
+import "../styles/admin_style.css";
 
 // ==== Tipos ====
 type ContactMessage = {
@@ -34,14 +34,15 @@ type Banner = {
 };
 
 export default function Admin() {
-  const [activeTab, setActiveTab] = useState<"mensajes" | "intentos" | "productos" | "banners">("mensajes");
+  const [activeTab, setActiveTab] = useState<
+    "mensajes" | "intentos" | "productos" | "banners"
+  >("mensajes");
 
   const [messages, setMessages] = useState<ContactMessage[]>([]);
   const [attempts, setAttempts] = useState<LoginAttempt[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [banners, setBanners] = useState<Banner[]>([]);
 
-  // ====== CARGA DESDE LOCALSTORAGE ======
   useEffect(() => {
     try {
       const m = localStorage.getItem("contact_messages");
@@ -133,7 +134,10 @@ export default function Admin() {
                   .reverse()
                   .map((m) => (
                     <li key={m.id}>
-                      <strong>{m.nombre} {m.apellido}</strong> — {m.correo}
+                      <strong>
+                        {m.nombre} {m.apellido}
+                      </strong>{" "}
+                      — {m.correo}
                       <div>{m.mensaje}</div>
                     </li>
                   ))}
@@ -155,7 +159,8 @@ export default function Admin() {
                   .reverse()
                   .map((a) => (
                     <li key={a.id}>
-                      {a.email} — {a.success ? "✅ OK" : "❌ FALLIDO"} — {new Date(a.timestamp).toLocaleString()}
+                      {a.email} — {a.success ? "✅ OK" : "❌ FALLIDO"} —{" "}
+                      {new Date(a.timestamp).toLocaleString()}
                     </li>
                   ))}
               </ul>
@@ -164,66 +169,110 @@ export default function Admin() {
         )}
 
         {activeTab === "productos" && (
-<section className="admin-section">
-        <h2>Productos ({products.length})</h2>
-        <form
-          className="admin-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const nombre = (form.elements.namedItem("nombre") as HTMLInputElement).value;
-            const descripcion = (form.elements.namedItem("descripcion") as HTMLInputElement).value;
-            const precio = parseFloat((form.elements.namedItem("precio") as HTMLInputElement).value);
-            const imagen = (form.elements.namedItem("imagen") as HTMLInputElement).value;
+          <section className="admin-section">
+            <h2>Productos ({products.length})</h2>
+            <form
+              className="admin-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const nombre = (
+                  form.elements.namedItem("nombre") as HTMLInputElement
+                ).value;
+                const descripcion = (
+                  form.elements.namedItem("descripcion") as HTMLInputElement
+                ).value;
+                const precio = parseFloat(
+                  (form.elements.namedItem("precio") as HTMLInputElement).value
+                );
+                const imagen = (
+                  form.elements.namedItem("imagen") as HTMLInputElement
+                ).value;
 
-            const nuevo: Product = { id: Date.now(), nombre, descripcion, precio, imagen };
-            saveProducts([...products, nuevo]);
-            form.reset();
-          }}
-        >
-          <input name="nombre" placeholder="Nombre" required />
-          <input name="descripcion" placeholder="Descripción" required />
-          <input name="precio" type="number" step="0.01" placeholder="Precio" required />
-          <input name="imagen" placeholder="URL de imagen" required />
-          <button type="submit">Agregar producto</button>
-        </form>
+                const nuevo: Product = {
+                  id: Date.now(),
+                  nombre,
+                  descripcion,
+                  precio,
+                  imagen,
+                };
+                saveProducts([...products, nuevo]);
+                form.reset();
+              }}
+            >
+              <input name="nombre" placeholder="Nombre" required />
+              <input name="descripcion" placeholder="Descripción" required />
+              <input
+                name="precio"
+                type="number"
+                step="0.01"
+                placeholder="Precio"
+                required
+              />
+              <input name="imagen" placeholder="URL de imagen" required />
+              <button type="submit">Agregar producto</button>
+            </form>
 
-        {products.length === 0 ? (
-          <p>No hay productos.</p>
-        ) : (
-          <div className="product-list">
-            {products.map((p) => (
-              <div key={p.id} className="product-card">
-                <img src={p.imagen} alt={p.nombre} />
-                <h3>{p.nombre}</h3>
-                <p className="description">{p.descripcion}</p>
-                <div className="price">${p.precio}</div>
-                <div className="card-actions">
-                  <button
-                    onClick={() => {
-                      const nombre = prompt("Nuevo nombre:", p.nombre);
-                      if (!nombre) return;
-                      const descripcion = prompt("Nueva descripción:", p.descripcion);
-                      if (!descripcion) return;
-                      const precioStr = prompt("Nuevo precio:", p.precio.toString());
-                      const precio = precioStr ? parseFloat(precioStr) : p.precio;
-                      const imagen = prompt("Nueva URL de imagen:", p.imagen) || p.imagen;
+            {products.length === 0 ? (
+              <p>No hay productos.</p>
+            ) : (
+              <div className="product-list">
+                {products.map((p) => (
+                  <div key={p.id} className="product-card">
+                    <img src={p.imagen} alt={p.nombre} />
+                    <h3>{p.nombre}</h3>
+                    <p className="description">{p.descripcion}</p>
+                    <div className="price">${p.precio}</div>
+                    <div className="card-actions">
+                      <button
+                        onClick={() => {
+                          const nombre = prompt("Nuevo nombre:", p.nombre);
+                          if (!nombre) return;
+                          const descripcion = prompt(
+                            "Nueva descripción:",
+                            p.descripcion
+                          );
+                          if (!descripcion) return;
+                          const precioStr = prompt(
+                            "Nuevo precio:",
+                            p.precio.toString()
+                          );
+                          const precio = precioStr
+                            ? parseFloat(precioStr)
+                            : p.precio;
+                          const imagen =
+                            prompt("Nueva URL de imagen:", p.imagen) ||
+                            p.imagen;
 
-                      const actualizado = { ...p, nombre, descripcion, precio, imagen };
-                      saveProducts(products.map((x) => (x.id === p.id ? actualizado : x)));
-                    }}
-                  >
-                    ✏️ Editar
-                  </button>
-                  <button onClick={() => saveProducts(products.filter((x) => x.id !== p.id))}>
-                    🗑️ Eliminar
-                  </button>
-                </div>
+                          const actualizado = {
+                            ...p,
+                            nombre,
+                            descripcion,
+                            precio,
+                            imagen,
+                          };
+                          saveProducts(
+                            products.map((x) =>
+                              x.id === p.id ? actualizado : x
+                            )
+                          );
+                        }}
+                      >
+                        ✏️ Editar
+                      </button>
+                      <button
+                        onClick={() =>
+                          saveProducts(products.filter((x) => x.id !== p.id))
+                        }
+                      >
+                        🗑️ Eliminar
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
-      </section>
+            )}
+          </section>
         )}
 
         {activeTab === "banners" && (
@@ -233,8 +282,11 @@ export default function Admin() {
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.target as HTMLFormElement;
-                const url = (form.elements.namedItem("url") as HTMLInputElement).value;
-                const titulo = (form.elements.namedItem("titulo") as HTMLInputElement).value;
+                const url = (form.elements.namedItem("url") as HTMLInputElement)
+                  .value;
+                const titulo = (
+                  form.elements.namedItem("titulo") as HTMLInputElement
+                ).value;
 
                 const nuevo: Banner = { id: Date.now(), url, titulo };
                 saveBanners([...banners, nuevo]);
